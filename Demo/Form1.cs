@@ -19,28 +19,41 @@ namespace Demo
         public Form1()
         {
             InitializeComponent();
+            CreateArray();
             CreateEvents();
             this.calc = new Calc();
+        
             // this.button1.Click += new System.EventHandler(this.button1_Click_1);
         }
         Calc calc;
+        Button[] buttons;
+        private void CreateArray()
+        {
+            buttons = new[]
+            {
+                this.button1,
+                 this.button2,
+                  this.button3,
+                   this.button4,
+                    this.button5,
+                     this.button6,
+                      this.button7,
+                       this.button8,
+                       this.button9,
+                      this.button10,
+                       this.button11,
+                       this.button12,
+                      this.button13,
+                       this.button14,
+
+            };
+        }
         private void CreateEvents()
         {
-            this.button1.Click += Click_1;
-            this.button2.Click += Click_1;
-            this.button3.Click += Click_1;
-            this.button4.Click += Click_1;
-            this.button5.Click += Click_1;
-            this.button6.Click += Click_1;
-            this.button7.Click += Click_1;
-            this.button8.Click += Click_1;
-            this.button9.Click += Click_1;
-            this.button10.Click += Click_1;
-            this.button11.Click += Click_1;
-            this.button12.Click += Click_1;
-            this.button13.Click += Click_1;
-            this.button14.Click += Click_1;
-
+            foreach (Button item in buttons)
+            {
+                item.Click += Click_1;
+            }
         }
         private void Click_1(object sender, EventArgs e)
         {

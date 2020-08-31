@@ -46,16 +46,16 @@ namespace Demo.Calculator
         public Operator operato_r { private set; get; }
         public static Operator CreateOperator(char one_char)
         {
-            Dictionary<char, Operator> array = new Dictionary<char, Operator>()
+            if (array.TryGetValue(one_char, out var value)) return value;
+            return Operator.empty;
+        }
+        static readonly Dictionary<char, Operator> array = new Dictionary<char, Operator>()
             {
                 { '+',Operator.plus },
                 { '-',Operator.minus },
                 { '*',Operator.multiplication },
                 { '/',Operator.dash }
             };
-            if (array.TryGetValue(one_char, out var value)) return value;
-            return Operator.empty;
-        }
         public Info(double number, Operator _operator)
         {
             this.number = number;

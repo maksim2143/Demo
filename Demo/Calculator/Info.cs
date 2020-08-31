@@ -12,24 +12,24 @@ namespace Demo.Calculator
         public static Info operator +(Info one,Info two)
         {
             double result = 0;
-            switch (one.operators)
+            switch (one.operato_r)
             {
-                case Operators.dileny:
+                case Operator.dash :
                     {
                         result = one.number / two.number;
                         break;
                     }
-                case Operators.minus:
+                case Operator.minus:
                     {
                         result = one.number - two.number;
                         break;
                     }
-                case Operators.mnojeny:
+                case Operator.multiplication :
                     {
                         result = one.number * two.number;
                         break;
                     }
-                case Operators.plus:
+                case Operator.plus:
                     {
                         result = one.number + two.number;
                         break;
@@ -40,36 +40,33 @@ namespace Demo.Calculator
                     }
 
             }
-            return new Info(result,two.operators,0);
+            return new Info(result,two.operato_r);
         }
         public double number { private set; get; }
-        public Operators operators { private set; get; }
-        public int Id {private set; get; }
-        public static Operators CreateOperator(char one_char)
+        public Operator operato_r { private set; get; }
+        public static Operator CreateOperator(char one_char)
         {
-            Dictionary<char, Operators> array = new Dictionary<char, Operators>()
+            Dictionary<char, Operator> array = new Dictionary<char, Operator>()
             {
-                { '+',Operators.plus },
-                { '-',Operators.minus },
-                { '*',Operators.mnojeny},
-                { '/',Operators.dileny}
+                { '+',Operator.plus },
+                { '-',Operator.minus },
+                { '*',Operator.multiplication },
+                { '/',Operator.dash }
             };
             if (array.TryGetValue(one_char, out var value)) return value;
-            return Operators.nulls;
+            return Operator.empty;
         }
-        public Info(double number, Operators operators, int id)
+        public Info(double number, Operator _operator)
         {
             this.number = number;
-            this.operators = operators;
-            this.Id = id;
+            this.operato_r = _operator;
         }
-        public Info(string number,Operators operators, int id)
+        public Info(string number,Operator _operator)
         {
             if (!double.TryParse(number, out var res)) 
                 throw new Exception("Not parse double");
             this.number = res;
-            this.operators = operators;
-            this.Id = id;
+            this.operato_r = _operator;
         }
     }
 }

@@ -50,7 +50,7 @@
     <Compile Include="Calculator\CoreParsing.cs" />
     <Compile Include="Calculator\Info.cs" />
     <Compile Include="Calculator\Calc.cs" />
-    <Compile Include="Calculator\Operators.cs" />
+    <Compile Include="Calculator\Operator.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

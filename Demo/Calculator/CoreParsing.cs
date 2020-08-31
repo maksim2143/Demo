@@ -19,12 +19,12 @@ namespace Demo.Calculator
                 id++;
                 var number = item.Groups["number"].Value;
                 var operat = item.Groups["value"].Value;
-                var info = new Info(number, Info.CreateOperator(operat.ElementAtOrDefault(0)), id);
+                var info = new Info(number, Info.CreateOperator(operat.ElementAtOrDefault(0)));
                 list.Add(info);
             }
             id++;
             var match = endRegexMath.Match(text);
-            var info_two = new Info(match.Value,Operators.nulls, id);
+            var info_two = new Info(match.Value,Operator.empty);
             list.Add(info_two);
             return list;
         }

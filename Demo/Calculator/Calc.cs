@@ -33,17 +33,17 @@ namespace Demo.Calculator
 
             foreach (var item in operators)
             {
-                var res = list.FindIndex(x => x.operators == item);
+                var res = list.FindIndex(x => x.operato_r == item);
                 if (res != -1) return res;
             }
             return -1;
            
         }
-        Operators[] operators = new[]{
-               Operators.mnojeny
-               ,Operators.dileny
-               ,Operators.plus
-               ,Operators.minus
+        Operator[] operators = new[]{
+               Operator.multiplication 
+               ,Operator.dash 
+               ,Operator.plus
+               ,Operator.minus
             };
     }
 }

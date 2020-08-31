@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Demo.Calculator
 {
-    enum Operators
+    enum Operator
     {
         plus=1,
         minus=2,
-        mnojeny=3,
-        dileny=4,
-        nulls = 5
+        multiplication =3,
+        dash =4,
+        empty = 5
     }
 }

@@ -19,7 +19,6 @@ namespace Demo
         public Form1()
         {
             InitializeComponent();
-            this.random = new Random();
             CreateEvents();
             this.calc = new Calc();
             // this.button1.Click += new System.EventHandler(this.button1_Click_1);
@@ -48,29 +47,6 @@ namespace Demo
             if (!(sender is Button)) return;
                 var button = sender as Button;
             this.textBox1.Text += button.Text;
-        }
-        Random random;
-        private string Get()
-        {
-            List<int> list = new List<int>();
-            for (int i = 0; i < 1; i++)
-            {
-                list.Add(this.random.Next(0, 1000));
-            }
-            var result = string.Join("", list.Select(x => x.ToString()).ToArray());
-            Thread.Sleep(1000);
-            return result;
-        }
-
-        private async void button1_Click(object sender, EventArgs e)
-        {
-            List<string> list = new List<string>();
-            for (int i = 0; i < 10; i++)
-            {
-                var result = await Task.Run(() => Get());
-                list.Add(result);
-            }
-            this.textBox1.Text = string.Join("|\n", list.ToArray());
         }
 
         private void button1_Click_1(object sender, EventArgs e)

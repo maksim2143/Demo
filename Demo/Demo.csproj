@@ -46,12 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Calculator\Brackets\Brackers_Info.cs" />
     <Compile Include="Calculator\Core.cs" />
-    <Compile Include="Calculator\CoreParsing.cs" />
+    <Compile Include="Calculator\Calc\CoreParsing.cs" />
     <Compile Include="Calculator\Method\expansion_method.cs" />
-    <Compile Include="Calculator\Info.cs" />
-    <Compile Include="Calculator\Calc.cs" />
-    <Compile Include="Calculator\Operator.cs" />
+    <Compile Include="Calculator\Ext\Info.cs" />
+    <Compile Include="Calculator\Calc\Calc.cs" />
+    <Compile Include="Calculator\Ext\Operator.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,5 +90,6 @@
   <ItemGroup>
     <None Include="Resources\hotpng.com.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -12,6 +12,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
+using Demo.Calculator.Brackets;
 
 namespace Demo
 {
@@ -24,12 +25,10 @@ namespace Demo
             InitializeComponent();
             CreateEvents();
             this.calc = new Calc();
-            
-            // this.button1.Click += new System.EventHandler(this.button1_Click_1);
         }
       
         Calc calc;
-        private void CreateEvents()
+        private  void CreateEvents()
         {
             foreach (object item in tableLayoutPanel1.Controls)
             {
@@ -40,6 +39,9 @@ namespace Demo
                 button.BackColor = GetRandomColor();
                 button.Refresh();
             }
+            Brackers_Info brackers = new Brackers_Info();
+            
+            
         }
         private void Clic_k(object sender, EventArgs e)
         {
@@ -88,14 +90,14 @@ namespace Demo
             GraphicsPath buttonPath = new GraphicsPath();
             Rectangle newRectangle = button.ClientRectangle;
             newRectangle.Inflate(-10, -10);
-            e.Graphics.DrawEllipse(Pens.White, newRectangle);
+            e.Graphics.DrawEllipse(Pens.Black, newRectangle);
             newRectangle.Inflate(1, 1);
             buttonPath.AddEllipse(newRectangle);
             button.Region = new Region(buttonPath);
         }
         private Color GetRandomColor()
         {
-            return Color.FromArgb(this.random.Next(0, 200), this.random.Next(0, 150), this.random.Next(0, 200));
+            return Color.FromArgb(this.random.Next(0, 100), this.random.Next(150, 200), this.random.Next(0, 20));
         }
     }
 }

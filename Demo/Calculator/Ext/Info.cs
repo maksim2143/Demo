@@ -35,5 +35,9 @@ namespace Demo.Calculator
             this.number = res;
             this.operato_r = _operator;
         }
+        protected Info()
+        {
+
+        }
     }
 }

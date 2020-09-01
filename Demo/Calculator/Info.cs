@@ -7,41 +7,8 @@ using System.Threading.Tasks;
 
 namespace Demo.Calculator
 {
-    class Info
+   public class Info
     {
-        public static Info operator +(Info one,Info two)
-        {
-            double result = 0;
-            switch (one.operato_r)
-            {
-                case Operator.dash :
-                    {
-                        result = one.number / two.number;
-                        break;
-                    }
-                case Operator.minus:
-                    {
-                        result = one.number - two.number;
-                        break;
-                    }
-                case Operator.multiplication :
-                    {
-                        result = one.number * two.number;
-                        break;
-                    }
-                case Operator.plus:
-                    {
-                        result = one.number + two.number;
-                        break;
-                    }
-                default:
-                    {
-                        return null;
-                    }
-
-            }
-            return new Info(result,two.operato_r);
-        }
         public double number { private set; get; }
         public Operator operato_r { private set; get; }
         public static Operator CreateOperator(char one_char)
@@ -64,7 +31,7 @@ namespace Demo.Calculator
         public Info(string number,Operator _operator)
         {
             if (!double.TryParse(number, out var res)) 
-                throw new Exception("Not parse double");
+                throw new Exception("Not parse");
             this.number = res;
             this.operato_r = _operator;
         }

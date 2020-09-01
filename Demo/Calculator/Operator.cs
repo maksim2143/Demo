@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Demo.Calculator
 {
-    enum Operator
+    public enum Operator
     {
         plus=1,
         minus=2,

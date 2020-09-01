@@ -12,17 +12,14 @@ namespace Demo.Calculator
         public List<Info> Get(string text)
         {
             var result =   this.pars.Matches(text);
-            int id = 0;
             List<Info> list = new List<Info>();
             foreach (Match item in result)
             {
-                id++;
                 var number = item.Groups["number"].Value;
                 var operat = item.Groups["value"].Value;
                 var info = new Info(number, Info.CreateOperator(operat.ElementAtOrDefault(0)));
                 list.Add(info);
             }
-            id++;
             var match = endRegexMath.Match(text);
             var info_two = new Info(match.Value,Operator.empty);
             list.Add(info_two);

@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Calculator\Core.cs" />
     <Compile Include="Calculator\CoreParsing.cs" />
+    <Compile Include="Calculator\Method\expansion_method.cs" />
     <Compile Include="Calculator\Info.cs" />
     <Compile Include="Calculator\Calc.cs" />
     <Compile Include="Calculator\Operator.cs" />

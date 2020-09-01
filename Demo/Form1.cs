@@ -11,6 +11,7 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Drawing2D;
 
 namespace Demo
 {
@@ -34,16 +35,23 @@ namespace Demo
             {
                 if (!(item is Button)) continue;
                 var button = (item as Button);
-                button.Click += Click_1;
+                button.Click += Clic_k;
                 button.Paint += button1_Paint;
                 button.BackColor = GetRandomColor();
                 button.Refresh();
             }
         }
-        private void Click_1(object sender, EventArgs e)
+        private void Clic_k(object sender, EventArgs e)
         {
             if (!(sender is Button)) return;
             var button = sender as Button;
+            ColorReset(button);
+            if (button.Equals(this.button15)) return;
+            if (button.Equals(this.button16)) return;
+            this.textBox1.Text += button.Text;
+        }
+        private void ColorReset(Button button)
+        {
             Color color = button.BackColor;
             Task.Run(() =>
             {
@@ -51,16 +59,7 @@ namespace Demo
                 Thread.Sleep(200);
                 button.BackColor = color;
             });
-            if (button.Equals(this.button15)) return;
-            if (button.Equals(this.button16)) return;
-            this.textBox1.Text += button.Text;
         }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void button16_Click(object sender, EventArgs e)
         {
             this.textBox1.Clear();
@@ -86,15 +85,13 @@ namespace Demo
         private void button1_Paint(object sender, PaintEventArgs e)
         {
             var button = sender as Button;
-            System.Drawing.Drawing2D.GraphicsPath buttonPath =
-     new System.Drawing.Drawing2D.GraphicsPath();
-
-            System.Drawing.Rectangle newRectangle = button.ClientRectangle;
+            GraphicsPath buttonPath = new GraphicsPath();
+            Rectangle newRectangle = button.ClientRectangle;
             newRectangle.Inflate(-10, -10);
-            e.Graphics.DrawEllipse(System.Drawing.Pens.Black, newRectangle);
+            e.Graphics.DrawEllipse(Pens.Black, newRectangle);
             newRectangle.Inflate(1, 1);
             buttonPath.AddEllipse(newRectangle);
-            button.Region = new System.Drawing.Region(buttonPath);
+            button.Region = new Region(buttonPath);
         }
         private Color GetRandomColor()
         {

@@ -13,28 +13,19 @@ namespace Demo.Calculator
         {
             while (list.Count > 1)
             {
-                int index = GetIndex(list); //Получаем индекс элемента с которым будет работать
+                int index = GetIndex(list);
                 if (index == -1) break;
-                var one = list.ElementAtOrDefault(index);//вытаскиваем элемент
-                var two = list.ElementAtOrDefault(index+1);//Вытаскиваем его соседа
-                #region hide
-                if (one == null) throw new Exception("Not Double Format");
+                var one = list.ElementAt(index);
+                var two = list.ElementAtOrDefault(index+1);
                 if (two == null) return two.number;
-                #endregion
-                Info value_res = one + two;//Выполняем арихметичну операцию
+                Info value_res = one.Create(two);
                 list.RemoveAt(index+1);
                 list[index] = value_res;
             }
-            return list.ElementAtOrDefault(0).number;
+            return list.ElementAt(0).number;
         }
-        /// <summary>
-        /// Выбираем, начало, то есть, умножение, деление ...
-        /// </summary>
-        /// <param name="list"></param>
-        /// <returns></returns>
         private int GetIndex(in List<Info> list)
         {
-           
             foreach (var item in operators)
             {
                 var res = list.FindIndex(x => x.operato_r == item);
@@ -43,7 +34,7 @@ namespace Demo.Calculator
             return -1;
            
         }
-        Operator[] operators = new[]{
+        readonly Operator[] operators = new[]{
                Operator.multiplication 
                ,Operator.dash 
                ,Operator.plus

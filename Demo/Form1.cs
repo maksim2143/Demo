@@ -88,7 +88,7 @@ namespace Demo
             GraphicsPath buttonPath = new GraphicsPath();
             Rectangle newRectangle = button.ClientRectangle;
             newRectangle.Inflate(-10, -10);
-            e.Graphics.DrawEllipse(Pens.Black, newRectangle);
+            e.Graphics.DrawEllipse(Pens.White, newRectangle);
             newRectangle.Inflate(1, 1);
             buttonPath.AddEllipse(newRectangle);
             button.Region = new Region(buttonPath);

@@ -20,7 +20,6 @@ namespace Demo
             App app = new App();
             app.InitializeComponent();
             app.Run();
-
         }
     }
 }

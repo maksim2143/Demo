@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,12 +19,18 @@ namespace Demo
     /// <summary>
     /// Логика взаимодействия для UserControl1.xaml
     /// </summary>
-    public partial class UserControl1 : UserControl
+    public partial class UserControl2 : Window, System.Windows.Markup.IComponentConnector
     {
 
-        public UserControl1()
+        public UserControl2()
         {
             InitializeComponent();
+        }
+
+        private void Button_MouseEnter(object sender, MouseEventArgs e)
+        {
+            if (!(sender is Button)) return;
+            var button = sender as Button;
         }
     }
 }

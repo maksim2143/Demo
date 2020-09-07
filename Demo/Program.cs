@@ -10,6 +10,7 @@ namespace Demo
 {
     static class Program
     {
+
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>
@@ -19,9 +20,7 @@ namespace Demo
             App app = new App();
             app.InitializeComponent();
             app.Run();
-            //Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Form1());
+
         }
     }
 }

@@ -12,6 +12,12 @@ namespace Demo
         public void InitializeComponent()
         {
             this.StartupUri = new System.Uri("UserControl1.xaml", System.UriKind.Relative);
+            var form = Task.Run(() =>
+            {
+                System.Windows.Forms.Application.EnableVisualStyles();
+                System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
+                System.Windows.Forms.Application.Run(new Form1());
+            });
         }
     }
 }

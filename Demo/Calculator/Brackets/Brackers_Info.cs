@@ -6,19 +6,17 @@ using System.Threading.Tasks;
 
 namespace Demo.Calculator.Brackets
 {
-    class Brackers_Info: Info
+    class Brackers_Info
     {
-        //private new string  number { set; get; }
-       
-        public Brackers_Info():base()
+        public List<List<Info>> infos { get; private set; }
+        CoreParsing core;
+        public void Set(string value)
         {
-
+            infos.Add(core.Get(value));
         }
-        private Brackers_Info(double number, Operator _operator) : base(number, Operator.empty)
+        public Brackers_Info()
         {
-        }
-        private Brackers_Info(string number, Operator _operator) : base(number, Operator.empty)
-        {
+            this.core = new CoreParsing();
         }
     }
 }

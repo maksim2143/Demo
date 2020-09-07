@@ -67,18 +67,19 @@ namespace Demo
             this.textBox1.Clear();
         }
         readonly Core core = new Core();
+        readonly Pars pars = new Pars();
         private void button15_Click(object sender, EventArgs e)
         {
             try
             {
-                this.textBox1.Text = core.Start(this.textBox1.Text).ToString();
+                this.textBox1.Text = pars.Start(this.textBox1.Text).ToString();
             }
             catch
             {
                 this.textBox1.Text = "Error";
             }
         }
-        Regex clear = new Regex("[^0-9+/*,-]");
+        Regex clear = new Regex("[^0-9+/*,()-]");
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             this.textBox1.Text = clear.Replace(this.textBox1.Text, "");
